@@ -1,0 +1,187 @@
+<html lang="en">
+<head>
+    <!-- CSS only -->
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to CodeRunner </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <!-- CSS only -->
+    
+    <script defer src="./index.js"></script>
+
+</head>
+<body>
+    <!-- <img src="./images/earth.jpg" alt="earth"> -->
+    <!-- action="https://sheetdb.io/api/v1/6ugtna5k58urc" -->
+    <div class="container" >
+        <form id="form" method="POST"  action="https://sheetdb.io/api/v1/6ugtna5k58urc">
+            <h1>Registration</h1>
+            <div class="designContainer">
+                <div class="input-control">
+                    <label class="col"  for="username">Name</label>
+                    
+                    <input class ='col'  id="username" name="username" type="text"   >
+                    <div class="error"></div>
+
+                </div>
+            </div>
+            <div class="input-control">
+                <label for="email">Email</label>
+                <input class="inputLabel" id="email" name="email" type="text" >
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" >
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <label for="password2">Password again</label>
+                <input  id="password2"name="password2" type="password">
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <label for="dob">DOB</label>
+                <input  id="dob"name="dob" type="date" >
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <label for="mobile">Mobile No</label>
+                <input  id="mobile"name="mobile" type="tel">
+                <div class="error"></div>
+            </div>
+            <!-- <div class="input-controll">
+                <div class="genderContainer"  id="gender">
+                    <div class="maleContainer">
+                        <label for="gender" > Gender </label>
+                        <input type="radio" name="gender" id="male" value="male" > <span> Male </span>
+                    </div>
+                    <div class="femaleContainer">
+                        <input type="radio" name="gender" id="female" value="female"> <span> Female </span>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- <div class="input-control">
+                <label class="qual" for="gender"> Gender </label> 
+                <select name="gender" id="gender">
+                    <option value="male">Male</option>
+                    <option value="Female">Female</option>
+                </select> 
+                <div class="error"></div> -->
+
+                <label class="gender" for="gender"> Gender </label>
+            
+            <div class="wrapper">
+                <input value="male" type="radio" name="gender" id="option-1" >
+                <input value="female" type="radio" name="gender" id="option-2">
+                  <label for="option-1" class="option option-1">
+                    <div class="dot"></div>
+                     <span>Male</span>
+                     </label>
+                  <label for="option-2" class="option option-2">
+                    <div class="dot"></div>
+                     <span>Female</span>
+                  </label>
+                  <div class="result"></div>
+               </div> 
+
+
+
+
+
+            <div class="input-control">
+                <label class="qual" for="qualification"> Qualification </label> 
+                <select name="qualification" id="qualification">
+                    <option value="Bachelor">Bachelor</option>
+                    <option value="Diploma">Diploma</option>
+                    <option value="Master">Master</option>
+                    <option value="Phd">Phd</option>
+                </select> 
+                <div class="error"></div>
+            </div>
+            <div class="btnContainer">
+                <button class="submitBtn"  type="submit">Sign Up</button>
+                <button type="reset" class="clearBtn" onclick="eraseAll()"> Clear </button>
+            </div>
+        </form>
+    </div>
+    <div class="detailsContainer">
+        <!-- <button class="excelButton" onclick="excelExport()"> Export to Excel </button> -->
+        <table id="display" border="1" >
+           
+                <tr>
+                    <th> Name </th>
+                    <th> Email </th>
+                    <th> Password </th>
+                    <th> DOB </th>
+                    <th> Mobile </th>
+                    <th> Qualification</th>
+                    <th> Gender</th>
+                </tr>
+
+           
+            
+
+        </table>
+    </div>
+
+
+
+    <!-- Adding Excel export function  -->
+    <!-- <script>
+
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbx6AsdjkHxcw9jjLz1B_4RDnT4w6SMYaQ2yP-xuqhxr6j2_1BGSLEXQcTXEVZ913aph/exec'
+        const form = document.forms['google-sheet']
+        
+        function excelExport(){
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+              .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+              .catch(error => console.error('Error!', error.message))
+        }
+       
+    </script> -->
+
+
+    <!-- <script>
+        let form = document.querySelector("form");
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            document.querySelector("#sub").value = "Submiting..";
+            let data = new FormData(form);
+            fetch('https://script.google.com/macros/s/AKfycbyzNFKuK6K_nv0pGUA8KlkMP8TgSQbbxnUetbY9L1S-bSCAU2WZx43mAY6rV5G2hukX/exec', {
+                    method: "POST",
+                    body: data
+                })
+                .then(res => res.text())
+                .then(data => {
+                    document.querySelector("#msg").innerHTML = data;
+                    document.querySelector("#sub").value = "Submit"
+                });
+        })
+    </script> -->
+
+    <!-- <script>
+        var form = document.getElementById('form');
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      fetch(form.action, {
+          method : "POST",
+          body: new FormData(document.getElementById("form")),
+      }).then(
+          response => response.json()
+      ).then((html) => {
+        // you can put any JS code here
+        window.open('page2.html', '_blank');
+
+      });
+    });
+    </script> -->
+</body>
+</html>
